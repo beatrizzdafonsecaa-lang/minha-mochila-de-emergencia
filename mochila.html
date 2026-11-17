@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mochila de emergência | Minha Mochila de Emergência</title>
+  <meta name="description" content="Prepare sua família para alagamento, deslizamento, falta de energia e calor extremo. Mochila, estoque e plano feitos para a sua casa.">
+  <meta name="theme-color" content="#3451d1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#3451d1"/><path d="M15.5 13v-1.5a4.5 4.5 0 0 1 9 0V13M13 18.5a5.5 5.5 0 0 1 5.5-5.5h3a5.5 5.5 0 0 1 5.5 5.5V28a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 13 28zM16.5 22.5h7v3.5h-7z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="marca-nome">Minha Mochila<small>de Emergência</small></span>
+      </a>
+      <div class="topo-acoes">
+        <button type="button" class="btn-redondo" id="btn-fonte" aria-pressed="false" aria-label="Texto maior" title="Texto maior">A+</button>
+        <button type="button" class="btn-redondo" id="btn-contraste" aria-pressed="false" aria-label="Alto contraste" title="Alto contraste"><svg class="ic" aria-hidden="true"><use href="#i-contraste"/></svg></button>
+        <a class="chip-perfil" id="chip-perfil" href="index.html"></a>
+      </div>
+    </div>
+  </header>
+  <div class="faixa-offline" id="faixa-offline" role="status" hidden>Sem internet. O site continua funcionando.</div>
+
+  <nav class="menu" aria-label="Menu principal">
+    <ul>
+      <li><a href="painel.html"><svg class="ic" aria-hidden="true"><use href="#i-casa"/></svg>Painel</a></li>
+      <li><a href="mochila.html" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-mochila"/></svg>Mochila</a></li>
+      <li><a href="estoque.html"><svg class="ic" aria-hidden="true"><use href="#i-gota"/></svg>Estoque</a></li>
+      <li><a href="plano.html"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Plano</a></li>
+      <li><a href="imprimir.html"><svg class="ic" aria-hidden="true"><use href="#i-impressora"/></svg>Imprimir</a></li>
+    </ul>
+  </nav>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+      <div class="cabeca-pagina">
+        <h1>Mochila de emergência</h1>
+        <p>Feita para a sua família. Marque o que já separou.</p>
+      </div>
+
+      <div class="fixo-topo">
+        <div class="cartao" style="padding:.85rem 1.1rem">
+          <div class="linha-progresso">
+            <span id="mochila-texto">0 de 0 itens</span>
+            <span id="mochila-pct">0%</span>
+          </div>
+          <div class="progresso" id="mochila-barra" role="progressbar" aria-label="Itens separados da mochila" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+        </div>
+      </div>
+
+      <div class="acoes nao-imprimir" style="margin:0 0 1rem">
+        <button type="button" class="botao contorno pequeno" id="btn-faltam" aria-pressed="false">Só o que falta</button>
+        <a class="botao contorno pequeno" href="imprimir.html?folha=mochila"><svg class="ic" aria-hidden="true"><use href="#i-impressora"/></svg>Imprimir lista</a>
+      </div>
+
+      <div id="mochila-pronta" class="aviso ok" hidden style="margin-bottom:1rem">
+        <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>
+        <p><strong>Mochila completa.</strong> Revise a validade a cada 6 meses. <a href="estoque.html">Próximo: estoque</a></p>
+      </div>
+
+      <form id="lista-mochila" aria-label="Lista da mochila"></form>
+
+      <p class="suave pequeno">Baseada nas orientações da Defesa Civil (kit para 72 horas), Ready.gov e Cruz Vermelha.</p>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Em emergência ligue <strong>199</strong> (Defesa Civil) ou <strong>193</strong> (Bombeiros).</p>
+      <p>Protótipo acadêmico. Orientações da Defesa Civil, Ready.gov e Cruz Vermelha.</p>
+    </div>
+  </footer>
+
+  <div id="avisos" role="status" aria-live="polite"></div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/icones.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/mochila.js"></script>
+</body>
+</html>

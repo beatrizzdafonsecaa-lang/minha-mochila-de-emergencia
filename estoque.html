@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estoque de casa | Minha Mochila de Emergência</title>
+  <meta name="description" content="Prepare sua família para alagamento, deslizamento, falta de energia e calor extremo. Mochila, estoque e plano feitos para a sua casa.">
+  <meta name="theme-color" content="#3451d1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container">
+      <a class="marca" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#3451d1"/><path d="M15.5 13v-1.5a4.5 4.5 0 0 1 9 0V13M13 18.5a5.5 5.5 0 0 1 5.5-5.5h3a5.5 5.5 0 0 1 5.5 5.5V28a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 13 28zM16.5 22.5h7v3.5h-7z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="marca-nome">Minha Mochila<small>de Emergência</small></span>
+      </a>
+      <div class="topo-acoes">
+        <button type="button" class="btn-redondo" id="btn-fonte" aria-pressed="false" aria-label="Texto maior" title="Texto maior">A+</button>
+        <button type="button" class="btn-redondo" id="btn-contraste" aria-pressed="false" aria-label="Alto contraste" title="Alto contraste"><svg class="ic" aria-hidden="true"><use href="#i-contraste"/></svg></button>
+        <a class="chip-perfil" id="chip-perfil" href="index.html"></a>
+      </div>
+    </div>
+  </header>
+  <div class="faixa-offline" id="faixa-offline" role="status" hidden>Sem internet. O site continua funcionando.</div>
+
+  <nav class="menu" aria-label="Menu principal">
+    <ul>
+      <li><a href="painel.html"><svg class="ic" aria-hidden="true"><use href="#i-casa"/></svg>Painel</a></li>
+      <li><a href="mochila.html"><svg class="ic" aria-hidden="true"><use href="#i-mochila"/></svg>Mochila</a></li>
+      <li><a href="estoque.html" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-gota"/></svg>Estoque</a></li>
+      <li><a href="plano.html"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Plano</a></li>
+      <li><a href="imprimir.html"><svg class="ic" aria-hidden="true"><use href="#i-impressora"/></svg>Imprimir</a></li>
+    </ul>
+  </nav>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+      <div class="cabeca-pagina">
+        <h1>Estoque de casa</h1>
+        <p>Veja por quantos dias a água e a comida duram.</p>
+      </div>
+
+      <div class="cartao" style="margin-bottom:1rem">
+        <div class="campo" style="margin:0">
+          <label for="meta">Meta</label>
+          <select id="meta">
+            <option value="3">3 dias (mínimo da Defesa Civil)</option>
+            <option value="5">5 dias</option>
+            <option value="7">7 dias</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grade duas">
+        <section class="cartao" aria-labelledby="titulo-agua">
+          <div class="cab-cartao"><span class="bloco agua"><svg class="ic" aria-hidden="true"><use href="#i-gota"/></svg></span><h2 id="titulo-agua">Água</h2></div>
+          <div class="resultado-dias" aria-live="polite">
+            <p class="grande" id="agua-dias">0 <small>dias</small></p>
+            <p id="agua-frase"></p>
+          </div>
+          <div class="progresso" id="agua-barra"><span></span></div>
+          <div class="linha-contador" style="margin-top:1rem">
+            <label for="agua">Litros guardados <small id="agua-regra"></small></label>
+            <div class="contador largo">
+              <button type="button" data-passo="-5" aria-label="Tirar 5 litros">−</button>
+              <input type="number" id="agua" min="0" max="2000" value="0" inputmode="numeric">
+              <button type="button" data-passo="5" aria-label="Somar 5 litros">+</button>
+            </div>
+          </div>
+          <p class="ajuda">Os botões somam 5 litros. Um galão tem 20.</p>
+        </section>
+
+        <section class="cartao" aria-labelledby="titulo-comida">
+          <div class="cab-cartao"><span class="bloco laranja"><svg class="ic" aria-hidden="true"><use href="#i-lata"/></svg></span><h2 id="titulo-comida">Comida</h2></div>
+          <div class="resultado-dias" aria-live="polite">
+            <p class="grande" id="comida-dias">0 <small>dias</small></p>
+            <p id="comida-frase"></p>
+          </div>
+          <div class="progresso" id="comida-barra"><span></span></div>
+
+          <form id="form-comida" style="margin-top:1rem" novalidate>
+            <div class="linha-adicionar">
+              <div class="campo">
+                <label for="alimento">Alimento</label>
+                <select id="alimento"></select>
+              </div>
+              <div class="contador">
+                <button type="button" data-passo="-1" aria-label="Diminuir quantidade">−</button>
+                <input type="number" id="qtd" min="1" max="99" value="1" inputmode="numeric" aria-label="Quantidade">
+                <button type="button" data-passo="1" aria-label="Aumentar quantidade">+</button>
+              </div>
+              <button type="submit" class="botao">Adicionar</button>
+            </div>
+          </form>
+
+          <ul class="lista-estoque" id="lista-comida" aria-label="Alimentos no estoque"></ul>
+          <p class="ajuda" id="comida-vazia">Nada na lista ainda. Prefira o que não vai à geladeira.</p>
+        </section>
+      </div>
+
+      <div class="acoes nao-imprimir">
+        <a class="botao" href="plano.html">Próximo: plano <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        <a class="botao contorno" href="imprimir.html?folha=estoque"><svg class="ic" aria-hidden="true"><use href="#i-impressora"/></svg>Imprimir</a>
+      </div>
+      <p class="suave pequeno" style="margin-top:1rem">Estimativa: 2 litros de água e uma média de comida por pessoa por dia. Bebês, gestantes e dias quentes pedem mais.</p>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Em emergência ligue <strong>199</strong> (Defesa Civil) ou <strong>193</strong> (Bombeiros).</p>
+      <p>Protótipo acadêmico. Orientações da Defesa Civil, Ready.gov e Cruz Vermelha.</p>
+    </div>
+  </footer>
+
+  <div id="avisos" role="status" aria-live="polite"></div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/icones.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/estoque.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "Minha Mochila de Emergência",
+  "short_name": "Mochila",
+  "description": "Prepare sua família para alagamento, deslizamento, falta de energia e calor extremo.",
+  "lang": "pt-BR",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f3f6fd",
+  "theme_color": "#3451d1",
+  "icons": [
+    { "src": "img/icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
